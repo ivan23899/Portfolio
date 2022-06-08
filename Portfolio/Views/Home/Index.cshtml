@@ -1,9 +1,22 @@
-﻿@{
+﻿@model Person
+@{
     ViewData["Title"] = "Home Page";
+    string ConvertToUpper(string value)
+    {
+        return value.ToUpper() + " Zzz";
+    }
+    DateTime currentDate = DateTime.Now;
 }
 
 <div class="text-center">
-    <h1 class="display-4">Hola mi nombre es Ivan Claros</h1>
+    <h1 class="display-4">Hola mi nombre es @ConvertToUpper(@Model.Name) (@Model.Age)</h1>
+    <h4>@currentDate.ToString("yyyy-mm-dd hh:mm:ss tt")</h4>
+    @if(@Model.Age >= 30){
+        <h4>Eres mayor de edad pudes pasar</h4>
+    }
+    else{
+        <h4>No puedes pasar, ve con tu mamà</h4>
+    }
     @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
     <h2>Soy un desarrolllador que està iniciando en el àmbito de la programaciòn.</h2>
     <img 

@@ -12,10 +12,14 @@ namespace Portfolio.Controllers
         {
             _logger = logger;
         }
-
+        Person person = new Person()
+        {
+            Age=35,
+            Name="Reynaldo corila"
+        };
         public IActionResult Index()
         {
-            return View();
+            return View(person);
         }
 
         public IActionResult Privacy()
